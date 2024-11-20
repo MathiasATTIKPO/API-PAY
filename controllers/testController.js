@@ -4,9 +4,9 @@ exports.initiatePayment = async (req, res) => {
   try {
     const headers = {
       'Content-Type': 'application/json',
-      'PAYDUNYA-MASTER-KEY': process.env.PAYDUNYA-MASTER-KEY,
-      'PAYDUNYA-PRIVATE-KEY': process.env.PAYDUNYA-PRIVATE-KEY,
-      'PAYDUNYA-TOKEN': process.env.PAYDUNYA-TOKEN
+      'PAYDUNYA-MASTER-KEY': process.env.PAYDUNYA_MASTER_KEY,
+      'PAYDUNYA-PRIVATE-KEY': process.env.PAYDUNYA_PRIVATE_KEY,
+      'PAYDUNYA-TOKEN': process.env.PAYDUNYA_TOKEN
     };
 
     const data = {
@@ -22,4 +22,9 @@ exports.initiatePayment = async (req, res) => {
     console.error('Erreur de paiement:', error.response ? error.response.data : error.message);
     res.status(500).json({ success: false, error: 'Erreur lors de l’initiation du paiement' });
   }
+
+
+console.log('Master Key:', process.env.PAYDUNYA_MASTER_KEY);
+console.log('Private Key:', process.env.PAYDUNYA_PRIVATE_KEY);
+console.log('Token:', process.env.PAYDUNYA_TOKEN);
 };

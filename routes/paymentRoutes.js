@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const paymentController = require('../controllers/paymentController');
+const paymentController = require('../controllers/testController');
 
-router.post('/validate-payment', paymentController.processPayment);
+// Route POST pour initier un paiement
+router.post('/initiate', paymentController.initiatePayment);
 
-module.exports = router;
+module.exports = router;
