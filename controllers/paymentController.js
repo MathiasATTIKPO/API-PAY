@@ -16,7 +16,8 @@ exports.initiatePayment = async (req, res) => {
       send_notification: req.body.send_notification || 1
     };
 
-    const response = await axios.post('https://app.paydunya.com/api/v1/dmp-api', data, { headers });
+    //const response = await axios.post('https://app.paydunya.com/api/v1/dmp-api', data, { headers });
+    const response = await axios.post('https://app.paydunya.com/api/v1/softpay/t-money-togo', data, { headers });
     res.status(200).json({ success: true, data: response.data });
   } catch (error) {
     console.error('Erreur de paiement:', error.response ? error.response.data : error.message);
